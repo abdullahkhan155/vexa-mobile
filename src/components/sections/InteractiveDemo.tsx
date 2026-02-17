@@ -39,11 +39,11 @@ export function InteractiveDemo() {
 
     const startDemoSequence = async () => {
         // Step 1: User "types" and sends message
-        await new Promise(r => setTimeout(r, 100)); // Almost instant typing
+        await new Promise(r => setTimeout(r, 500)); // Natural typing delay
         setChatStep(1);
 
         // Step 2: AI Starts Thinking
-        await new Promise(r => setTimeout(r, 100)); // Almost instant thinking start
+        await new Promise(r => setTimeout(r, 600)); // Natural thinking pause
         setChatStep(2);
 
         // Thinking Progress Simulation
@@ -56,7 +56,7 @@ export function InteractiveDemo() {
 
         for (const state of thinkingStates) {
             setThinkingText(state);
-            await new Promise(r => setTimeout(r, 150)); // Very fast processing steps
+            await new Promise(r => setTimeout(r, 800)); // Readable processing steps
         }
 
         // Step 3: AI Responds (Start Typewriter)
@@ -78,7 +78,7 @@ export function InteractiveDemo() {
                     clearInterval(intervalId);
                     setIsTyping(false);
                 }
-            }, 8); // Super fast typing speed
+            }, 20); // Natural reading speed
 
             return () => clearInterval(intervalId);
         }
