@@ -10,9 +10,8 @@ export function middleware(request: NextRequest) {
     // but since we are redirecting to a different subdomain, it should be fine.
     // We also want to ensure we don't redirect if we are already on m.vexacart.shop (though this middleware is likely running on the main app).
 
-    if (isMobile) {
+    if (isMobile && request.nextUrl.hostname !== 'm.vexacart.shop') {
         const url = request.nextUrl.clone()
-        // Redirect to the mobile subdomain
         url.hostname = 'm.vexacart.shop'
         url.protocol = 'https'
         url.port = '' // Ensure port is cleared if running locally on a port, though this is for production mostly.
