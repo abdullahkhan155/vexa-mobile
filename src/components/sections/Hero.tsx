@@ -137,7 +137,7 @@ export function Hero() {
                     initial={{ opacity: 0, y: 100, rotateX: 20 }}
                     animate={{ opacity: 1, y: 0, rotateX: 0 }}
                     transition={{ duration: 1.2, delay: 0.8, type: "spring", damping: 20 }}
-                    className="mt-20 relative mx-auto w-full max-w-5xl perspective-1000"
+                    className="mt-10 relative mx-auto w-full max-w-5xl perspective-1000"
                 >
                     <div className="relative z-10 group">
                         {/* Glow Effect behind device */}

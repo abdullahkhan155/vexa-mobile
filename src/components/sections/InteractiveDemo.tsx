@@ -39,11 +39,11 @@ export function InteractiveDemo() {
 
     const startDemoSequence = async () => {
         // Step 1: User "types" and sends message
-        await new Promise(r => setTimeout(r, 1000));
+        await new Promise(r => setTimeout(r, 800));
         setChatStep(1);
 
         // Step 2: AI Starts Thinking
-        await new Promise(r => setTimeout(r, 1200));
+        await new Promise(r => setTimeout(r, 600));
         setChatStep(2);
 
         // Thinking Progress Simulation
@@ -56,7 +56,7 @@ export function InteractiveDemo() {
 
         for (const state of thinkingStates) {
             setThinkingText(state);
-            await new Promise(r => setTimeout(r, 1200));
+            await new Promise(r => setTimeout(r, 700));
         }
 
         // Step 3: AI Responds (Start Typewriter)
