@@ -1,12 +1,18 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { DemoModal } from "@/components/ui/DemoModal";
 
 export function CTA() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     return (
         <section className="bg-black py-32 relative overflow-hidden">
+            <DemoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
             {/* Background Gradients */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-500/20 rounded-full blur-[120px] pointer-events-none opacity-30" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-[100px] pointer-events-none opacity-40 mix-blend-overlay" />
@@ -39,10 +45,15 @@ export function CTA() {
                         className="inline-block relative group"
                     >
                         <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-200" />
-                        <button className="relative px-12 py-5 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full text-white font-bold text-lg shadow-xl hover:shadow-cyan-500/25 transition-all flex items-center gap-3">
-                            Get my demo
-                            <ArrowRight className="w-5 h-5" />
-                        </button>
+                        <Button
+                            onClick={() => setIsModalOpen(true)}
+                            size="lg"
+                            className="relative rounded-full text-lg px-8 py-6 bg-cyan-500 hover:bg-cyan-400 text-black font-bold tracking-wide shadow-[0_0_20px_rgba(6,182,212,0.4)] hover:shadow-[0_0_40px_rgba(6,182,212,0.6)] transition-all duration-300"
+                        >
+                            <span className="flex items-center gap-2">
+                                Get demo <ArrowRight className="w-5 h-5" />
+                            </span>
+                        </Button>
                     </motion.div>
                 </motion.div>
             </div>

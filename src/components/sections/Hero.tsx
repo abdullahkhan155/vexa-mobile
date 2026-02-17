@@ -85,7 +85,7 @@ export function Hero() {
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-500"></span>
                     </span>
-                    <span className="tracking-wide">AI SHOPPING ASSISTANT</span>
+                    <span className="tracking-wide">RETAIL REIMAGINED</span>
                 </motion.div>
 
                 <motion.div
@@ -95,10 +95,10 @@ export function Hero() {
                 >
                     <h1 className="text-5xl md:text-8xl lg:text-9xl font-bold tracking-tighter mb-6 leading-[0.95] md:leading-[0.9]">
                         <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50 block">
-                            Shopping.
+                            AI Shopping Cart
                         </span>
                         <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400 animate-gradient block mt-2">
-                            Reimagined.
+                            Assistant.
                         </span>
                     </h1>
                 </motion.div>
@@ -123,10 +123,10 @@ export function Hero() {
                         <Button
                             onClick={() => setIsModalOpen(true)}
                             size="lg"
-                            className="relative rounded-full text-lg px-12 h-16 bg-black border border-white/10 hover:bg-zinc-900 transition-all font-semibold tracking-wide w-full md:w-auto"
+                            className="relative rounded-full text-lg px-8 py-6 bg-cyan-500 hover:bg-cyan-400 text-black font-bold tracking-wide shadow-[0_0_20px_rgba(6,182,212,0.4)] hover:shadow-[0_0_40px_rgba(6,182,212,0.6)] transition-all duration-300 transform hover:scale-105"
                         >
-                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-zinc-400 group-hover:from-white group-hover:to-white transition-all flex items-center gap-2">
-                                Get Early Access <ArrowRight className="w-5 h-5 text-white" />
+                            <span className="flex items-center gap-2">
+                                Get demo <ArrowRight className="w-5 h-5" />
                             </span>
                         </Button>
                     </div>
