@@ -86,7 +86,20 @@ export function DemoModal({ isOpen, onClose }: DemoModalProps) {
                                                 </p>
                                             </div>
 
-                                            <form onSubmit={handleSubmit} className="space-y-4">
+                                            <form action={async (formData) => {
+                                                setIsLoading(true);
+                                                // Client-side validation state updates or toasts could go here
+                                                const { submitDemo } = await import('@/app/actions/submit-demo');
+                                                const result = await submitDemo(formData);
+                                                setIsLoading(false);
+
+                                                if (result?.error) {
+                                                    alert(result.error); // Simple feedback for now, user can enhance later
+                                                    return;
+                                                }
+
+                                                setStep("success");
+                                            }} className="space-y-4">
                                                 <div className="space-y-2">
                                                     <label htmlFor="name" className="text-xs font-medium text-zinc-300 ml-1">
                                                         FULL NAME
@@ -95,10 +108,10 @@ export function DemoModal({ isOpen, onClose }: DemoModalProps) {
                                                         <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500/50 to-purple-600/50 rounded-xl blur opacity-0 group-focus-within:opacity-100 transition duration-500" />
                                                         <input
                                                             id="name"
+                                                            name="name"
                                                             type="text"
                                                             required
-                                                            value={formData.name}
-                                                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                                            defaultValue={formData.name}
                                                             className="relative w-full bg-zinc-950/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:ring-0 focus:border-white/20 transition-all"
                                                             placeholder="John Doe"
                                                         />
@@ -113,10 +126,10 @@ export function DemoModal({ isOpen, onClose }: DemoModalProps) {
                                                         <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500/50 to-purple-600/50 rounded-xl blur opacity-0 group-focus-within:opacity-100 transition duration-500" />
                                                         <input
                                                             id="email"
+                                                            name="email"
                                                             type="email"
                                                             required
-                                                            value={formData.email}
-                                                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                                            defaultValue={formData.email}
                                                             className="relative w-full bg-zinc-950/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:ring-0 focus:border-white/20 transition-all"
                                                             placeholder="john@company.com"
                                                         />

@@ -19,6 +19,15 @@ export function middleware(request: NextRequest) {
         return NextResponse.redirect(url)
     }
 
+    if (!isMobile && request.nextUrl.hostname === 'm.vexacart.shop') {
+        const url = request.nextUrl.clone()
+        url.hostname = 'vexacart.shop'
+        url.pathname = '/'
+        url.protocol = 'https'
+        url.port = ''
+        return NextResponse.redirect(url)
+    }
+
     return NextResponse.next()
 }
 
