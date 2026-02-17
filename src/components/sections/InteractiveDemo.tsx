@@ -200,8 +200,8 @@ export function InteractiveDemo() {
                                                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500/20 to-blue-600/20 border border-cyan-500/30 flex items-center justify-center flex-shrink-0 shadow-[0_0_15px_rgba(6,182,212,0.15)]">
                                                     <Sparkles className="w-5 h-5 text-cyan-400" />
                                                 </div>
-                                                <div className="bg-zinc-800/80 backdrop-blur-md rounded-2xl rounded-tl-sm p-5 border border-white/10 shadow-lg max-w-[85%]">
-                                                    <p className="text-zinc-200">Hello! I'm ready to help properly stock your cart. What do you need today?</p>
+                                                <div className="bg-zinc-800/80 backdrop-blur-md rounded-2xl rounded-tl-sm p-4 md:p-5 border border-white/10 shadow-lg max-w-full md:max-w-[85%]">
+                                                    <p className="text-zinc-200 text-sm md:text-base">Hello! I'm ready to help properly stock your cart. What do you need today?</p>
                                                 </div>
                                             </div>
 
@@ -212,8 +212,8 @@ export function InteractiveDemo() {
                                                     animate={{ opacity: 1, y: 0, scale: 1 }}
                                                     className="flex items-center gap-4 justify-end self-end w-full"
                                                 >
-                                                    <div className="bg-gradient-to-br from-zinc-700 to-zinc-800 rounded-2xl rounded-tr-sm p-5 border border-white/10 shadow-lg max-w-[85%]">
-                                                        <p className="text-white">I need running shoes for under $80.</p>
+                                                    <div className="bg-gradient-to-br from-zinc-700 to-zinc-800 rounded-2xl rounded-tr-sm p-4 md:p-5 border border-white/10 shadow-lg max-w-full md:max-w-[85%]">
+                                                        <p className="text-white text-sm md:text-base">I need running shoes for under $80.</p>
                                                     </div>
                                                 </motion.div>
                                             )}
@@ -260,8 +260,8 @@ export function InteractiveDemo() {
                                                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500/20 to-blue-600/20 border border-cyan-500/30 flex items-center justify-center flex-shrink-0 shadow-[0_0_15px_rgba(6,182,212,0.15)]">
                                                         <Sparkles className="w-5 h-5 text-cyan-400" />
                                                     </div>
-                                                    <div className="flex flex-col gap-4 max-w-[90%]">
-                                                        <div className="bg-zinc-800/80 backdrop-blur-md rounded-2xl rounded-tl-sm p-5 border border-white/10 shadow-lg">
+                                                    <div className="flex flex-col gap-4 max-w-full md:max-w-[90%]">
+                                                        <div className="bg-zinc-800/80 backdrop-blur-md rounded-2xl rounded-tl-sm p-4 md:p-5 border border-white/10 shadow-lg">
                                                             {renderStyledResponse()}
                                                         </div>
 
@@ -274,13 +274,23 @@ export function InteractiveDemo() {
                                                                 filter: !isTyping ? "blur(0px)" : "blur(10px)"
                                                             }}
                                                             transition={{ duration: 0.5 }}
-                                                            className="bg-zinc-900 rounded-2xl p-4 border border-white/10 flex gap-5 items-center hover:bg-zinc-800/80 transition-all cursor-pointer group ring-1 ring-transparent hover:ring-cyan-500/30"
+                                                            className="bg-zinc-900 rounded-2xl p-3 md:p-4 border border-white/10 flex flex-col md:flex-row gap-4 md:gap-5 items-start md:items-center hover:bg-zinc-800/80 transition-all cursor-pointer group ring-1 ring-transparent hover:ring-cyan-500/30 w-full"
                                                         >
-                                                            <div className="h-20 w-20 bg-gradient-to-br from-zinc-800 to-zinc-700 rounded-xl flex items-center justify-center border border-white/5 relative overflow-hidden group-hover:scale-105 transition-transform">
-                                                                <div className="absolute inset-0 bg-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                                                <Tag className="w-8 h-8 text-zinc-500 group-hover:text-cyan-400 transition-colors" />
+                                                            <div className="flex items-center gap-4 w-full md:w-auto">
+                                                                <div className="h-16 w-16 md:h-20 md:w-20 bg-gradient-to-br from-zinc-800 to-zinc-700 rounded-xl flex items-center justify-center border border-white/5 relative overflow-hidden group-hover:scale-105 transition-transform shrink-0">
+                                                                    <div className="absolute inset-0 bg-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                                    <Tag className="w-6 h-6 md:w-8 md:h-8 text-zinc-500 group-hover:text-cyan-400 transition-colors" />
+                                                                </div>
+                                                                <div className="flex-1 md:hidden">
+                                                                    <div className="flex items-center gap-2 mb-1">
+                                                                        <span className="px-1.5 py-0.5 rounded text-[9px] font-bold bg-green-500/20 text-green-400 border border-green-500/20 uppercase tracking-wide">Flash</span>
+                                                                        <span className="px-1.5 py-0.5 rounded text-[9px] font-bold bg-zinc-800 text-zinc-400 border border-white/5 uppercase tracking-wide">Aisle 7</span>
+                                                                    </div>
+                                                                    <h4 className="font-bold text-white text-base group-hover:text-cyan-400 transition-colors">Nike Pegasus 41</h4>
+                                                                </div>
                                                             </div>
-                                                            <div>
+
+                                                            <div className="hidden md:block">
                                                                 <div className="flex items-center gap-2 mb-1">
                                                                     <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-green-500/20 text-green-400 border border-green-500/20 uppercase tracking-wide">Flash Sale</span>
                                                                     <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-zinc-800 text-zinc-400 border border-white/5 uppercase tracking-wide">Aisle 7</span>
@@ -291,7 +301,19 @@ export function InteractiveDemo() {
                                                                     <span className="text-zinc-500 line-through text-sm">$120.00</span>
                                                                 </div>
                                                             </div>
-                                                            <div className="ml-auto">
+
+                                                            {/* Mobile Price/Action Row */}
+                                                            <div className="flex md:hidden items-center justify-between w-full mt-1 border-t border-white/5 pt-3">
+                                                                <div className="flex gap-2 items-baseline">
+                                                                    <span className="text-xl font-bold text-white">$69.99</span>
+                                                                    <span className="text-zinc-500 line-through text-xs">$120</span>
+                                                                </div>
+                                                                <button className="h-8 w-8 rounded-full bg-cyan-500 text-black flex items-center justify-center hover:bg-cyan-400 transition-colors shadow-lg shadow-cyan-500/20">
+                                                                    <ArrowRight className="w-4 h-4 -rotate-45" />
+                                                                </button>
+                                                            </div>
+
+                                                            <div className="ml-auto hidden md:block">
                                                                 <button className="h-10 w-10 rounded-full bg-cyan-500 text-black flex items-center justify-center hover:bg-cyan-400 transition-colors shadow-lg shadow-cyan-500/20">
                                                                     <ArrowRight className="w-5 h-5 -rotate-45" />
                                                                 </button>
@@ -735,8 +757,8 @@ export function InteractiveDemo() {
                             </AnimatePresence>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
+                </div >
+            </div >
+        </section >
     );
 }
